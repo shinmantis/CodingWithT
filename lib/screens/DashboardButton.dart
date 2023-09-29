@@ -11,33 +11,50 @@ class DashboardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text("Dashboard",
-              style: TextStyle(
-                color: Colors.black,
-              )),
+          title: const Text(
+            "Dashboard",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           backgroundColor: Colors.pink),
       backgroundColor: Colors.amberAccent,
-      /*body: const Center(
-        child:Image(
-            image: AssetImage("images/metroid.png")*/
-      body: Center(
-        child: IconButton(
-          icon: Icon(
-            FontAwesomeIcons.wallet,
+      body: Container(
+        child: Text(
+          "Boring",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
-          onPressed: (){},
-          iconSize: 100,
-          color: Colors.blue,
-          hoverColor: Colors.red,
-          highlightColor: Colors.pink,
-          splashColor: Colors.black,
         ),
+        width: 350.0,
+        height: 250.0,
+        padding: EdgeInsets.all(5.0),
+        margin: EdgeInsets.all(5.0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            // borderRadius: BorderRadius.circular(10.0),
+            color: Colors.purpleAccent,
+            border: Border.all(color: Colors.green, width: 5),
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(
+                "images/metroid.png",
+              ),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 7,
+                spreadRadius: 5,
+                offset: Offset(4,4),
+              ),
+            ]),
       ),
     );
   }
 }
-
-
 
 int getNumber() {
   return Random().nextInt(100);
