@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/Home.dart';
 import 'package:first_flutter_app/screens/Dashboard.dart';
 import 'screens/DashboardButton.dart';
 //Enter application through here
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
         title: "Foo Yung Chu!",
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
-        home: DashboardButton());
+        home: Home());
   }
 }
