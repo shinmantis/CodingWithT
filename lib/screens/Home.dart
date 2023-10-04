@@ -6,7 +6,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true, //does what it says
+      // extendBodyBehindAppBar: true, //does what it says
       appBar: AppBar(
         leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
         title: Text("Home"),
@@ -28,20 +28,50 @@ class Home extends StatelessWidget {
           fit: BoxFit.scaleDown,
         ),
       ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "Appear Tutorial",
-            style: TextStyle(fontSize: 22),
-          ),
-          Text(
-            "Coding with Tea",
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.purple),
-          )
-        ],
-      )),
+      body: Container(
+        color: Colors.amber,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(child: Image(image: AssetImage("images/metroid.png"))),
+                Expanded(flex: 2,child: Image(image: AssetImage("images/metroid.png"))),
+                Expanded(child: Image(image: AssetImage("images/metroid.png")))
+              ],
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Icon(Icons.star_border),
+              Icon(Icons.star_border),
+              Icon(Icons.star_border),
+              Icon(Icons.star_border),
+              Icon(Icons.star_border),
+            ]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(children: [
+                  Icon(Icons.phone, size: 35.00),
+                  Text(
+                    "Phone",
+                  ),
+                ]),
+                Column(children: [
+                  Icon(Icons.alt_route, size: 35.00),
+                  Text(
+                    "route",
+                  ),
+                ]),
+                Column(children: [
+                  Icon(Icons.share, size: 35.00),
+                  Text(
+                    "share",
+                  ),
+                ]),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
