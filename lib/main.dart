@@ -11,6 +11,9 @@ void main() => runApp(const MyApp());
   //Hot Reloads?  https://stackoverflow.com/questions/57127496/flutter-hot-reloading-not-working-in-android-studiomac
   //https://stackoverflow.com/questions/59242815/what-is-the-difference-between-scaffold-and-container-in-flutter
   //https://stackoverflow.com/questions/75962859/onpressed-doesnt-work-in-flutter
+  //https://medium.com/flutter-community/dart-what-are-mixins-3a72344011f3
+  //https://medium.com/flutter-community
+  //https://www.youtube.com/watch?v=g7lUIxVHTec
 
 
 

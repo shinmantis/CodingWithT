@@ -30,45 +30,65 @@ class Home extends StatelessWidget {
       ),
       body: Container(
         color: Colors.amber,
-        child: Column(
+        child:  ListView(
           children: [
-            Row(
-              children: [
-                Expanded(child: Image(image: AssetImage("images/metroid.png"))),
-                Expanded(flex: 2,child: Image(image: AssetImage("images/metroid.png"))),
-                Expanded(child: Image(image: AssetImage("images/metroid.png")))
-              ],
+            ListTile(
+              tileColor: Colors.black,
+              leading: Icon(Icons.alarm_on_sharp),
+              title: Text("Sales"),
+              subtitle: Text("Sales Of The Week"),
+              trailing: Icon(Icons.abc),
+              textColor: Colors.white,
+              iconColor: Colors.red,
+              hoverColor: Colors.purple,
+              selectedColor: Colors.red,
+              selectedTileColor: Colors.grey,
+              onLongPress: (){},
+              onTap: (){},
+
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Icon(Icons.star_border),
-              Icon(Icons.star_border),
-              Icon(Icons.star_border),
-              Icon(Icons.star_border),
-              Icon(Icons.star_border),
-            ]),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(children: [
-                  Icon(Icons.phone, size: 35.00),
-                  Text(
-                    "Phone",
-                  ),
-                ]),
-                Column(children: [
-                  Icon(Icons.alt_route, size: 35.00),
-                  Text(
-                    "route",
-                  ),
-                ]),
-                Column(children: [
-                  Icon(Icons.share, size: 35.00),
-                  Text(
-                    "share",
-                  ),
-                ]),
-              ],
+            ListTile(
+              leading: Icon(Icons.airplane_ticket),
+              title: Text("Sales"),
+              subtitle: Text("Sales Of The Week"),
+              trailing: Icon(Icons.abc),
+              textColor: Colors.white,
+              iconColor: Colors.red,
+              hoverColor: Colors.purple,
+              selectedColor: Colors.red,
+              selectedTileColor: Colors.grey,
+              onLongPress: (){},
+              onTap: (){},
+
             ),
+            ListTile(
+              leading: Icon(Icons.car_crash),
+              title: Text("Sales"),
+              subtitle: Text("Sales Of The Week"),
+              trailing: Icon(Icons.abc),
+              textColor: Colors.white,
+              iconColor: Colors.red,
+              hoverColor: Colors.purple,
+              selectedColor: Colors.red,
+              selectedTileColor: Colors.grey,
+              onLongPress: (){},
+              onTap: (){},
+
+            ),
+            ListTile(
+              leading: Icon(Icons.food_bank),
+              title: Text("Sales"),
+              subtitle: Text("Sales Of The Week"),
+              trailing: Icon(Icons.abc),
+              textColor: Colors.white,
+              iconColor: Colors.red,
+              hoverColor: Colors.purple,
+              selectedColor: Colors.red,
+              selectedTileColor: Colors.grey,
+              onLongPress: (){},
+              onTap: (){},
+
+            )
           ],
         ),
       ),
