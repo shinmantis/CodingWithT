@@ -14,6 +14,15 @@ void main() => runApp(const MyApp());
   //https://medium.com/flutter-community/dart-what-are-mixins-3a72344011f3
   //https://medium.com/flutter-community
   //https://www.youtube.com/watch?v=g7lUIxVHTec
+  //https://app.flutterflow.io/project/travel-app-sn5100?tab=uiBuilder&page=HomePage
+  //https://pub.dev/packages/sodium
+  //https://docs.flutter.dev/data-and-backend/serialization/json
+  //https://stackoverflow.com/questions/62923903/auto-converting-json-to-object-in-dart-flutter
+  //https://pub.dev/packages/json_serializable
+  //https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/
+  //https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
+  //https://www.reddit.com/r/FlutterDev/comments/10z6cka/flutter_3_book_recommendations/
+  //https://pub.dev/packages/upgrader
 
 
 
