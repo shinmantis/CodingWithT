@@ -16,8 +16,8 @@ class Home extends StatelessWidget {
     return Scaffold(
       // extendBodyBehindAppBar: true, //does what it says
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-        title: Text("Home"),
+        //leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}), Could prevent the drawer widget below from opening
+        title: Text("Navigation Drawer"),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
@@ -52,8 +52,86 @@ class Home extends StatelessWidget {
                 splashColor: Colors.greenAccent,
                 //selectedTileColor: Colors.pinkAccent,
                 hoverColor: Colors.deepPurpleAccent,
-                onTap: (){},);
+                onTap: () {},
+              );
             }),
+      ),
+      drawer: Drawer(
+        child: ListView(children: [
+          UserAccountsDrawerHeader(
+            accountEmail: Text("Foo@Fool.com"),
+            accountName: Text("Coding with Tea"),
+            currentAccountPicture: CircleAvatar(
+              foregroundImage: AssetImage("images/metroid.png"),
+            ),
+            otherAccountsPictures: [
+              InkWell(
+                  onTap: () {},
+                  splashColor: Colors.deepPurple,
+                  hoverColor: Colors.orange,
+                  child: CircleAvatar(
+                    foregroundImage: AssetImage("images/metroid.png"),
+                  )),
+              InkWell(
+                  onTap: () {},
+                  splashColor: Colors.deepPurple,
+                  hoverColor: Colors.orange,
+                  child: CircleAvatar(
+                    foregroundImage: AssetImage("images/metroid.png"),
+                  )),
+              InkWell(
+                  onTap: () {},
+                  splashColor: Colors.deepPurple,
+                  hoverColor: Colors.orange,
+                  child: CircleAvatar(
+                    foregroundImage: AssetImage("images/metroid.png"),
+                  )),
+            ],
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text("Home"),
+            onTap: () {},
+            tileColor: Colors.grey.shade50,
+            hoverColor: Colors.green,
+            splashColor: Colors.blueGrey,
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_cart),
+            title: Text("Shop"),
+            onTap: () {},
+            tileColor: Colors.grey.shade50,
+            hoverColor: Colors.green,
+            splashColor: Colors.blueGrey,
+          ),
+          ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text("Shop"),
+            onTap: () {},
+            tileColor: Colors.grey.shade50,
+            hoverColor: Colors.green,
+            splashColor: Colors.blueGrey,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Text("Lables"),
+          ),
+          ListTile(
+            leading: Icon(Icons.label),
+            title: Text("Red"),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.label),
+            title: Text("Green"),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.label),
+            title: Text("Blue"),
+            onTap: () {},
+          ),
+        ]),
       ),
     );
   }
