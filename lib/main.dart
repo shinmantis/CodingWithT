@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        title: "Foo Yung Chu!",
+    return  MaterialApp(
+        title: "Material App Title!",
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
         home: Home());

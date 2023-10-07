@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+
+  List<String> products = ["Bed", "Sofa", "Chair"];
+  List<String> productDetails = [
+    "King size bed",
+    "King size sofa",
+    "Wooden comfortable Chair"
+  ];
+  List<int> price = [3000, 2500, 1869];
 
   @override
   Widget build(BuildContext context) {
@@ -30,73 +38,22 @@ class Home extends StatelessWidget {
       ),
       body: Container(
         //color: Colors.amber,
-        child:  ListView(
-          itemExtent: 100.0, //predetermines the size of each cell rather than letting the children determine
-          reverse: false, //Makes the listview populate from the bottom so it scrolls upward instead of downward
-          scrollDirection: Axis.vertical, //allows you to scroll in portrait/landscape mode, doesn't automatically change the text direction
-          children: [
-            ListTile(
-              tileColor: Colors.black,
-              leading: CircleAvatar(child: Icon(Icons.alarm_on_sharp,), backgroundColor: Colors.blue, foregroundColor: Colors.red,),
-              title: Text("Sales"),
-              subtitle: Text("Sales Of The Week"),
-              trailing: Icon(Icons.abc),
-              textColor: Colors.grey.shade50,
-              iconColor: Colors.red,
-              hoverColor: Colors.purple,
-              selectedColor: Colors.red,
-              selectedTileColor: Colors.grey.shade900,
-              onLongPress: (){},
-              onTap: (){},
-
-            ),
-            ListTile(
-              tileColor: Colors.blueGrey,
-              leading: Icon(Icons.airplane_ticket),
-              title: Text("Sales"),
-              subtitle: Text("Sales Of The Week"),
-              trailing: Icon(Icons.abc),
-              textColor: Colors.white,
-              iconColor: Colors.red,
-              hoverColor: Colors.purple,
-              selectedColor: Colors.red,
-              selectedTileColor: Colors.grey,
-              onLongPress: (){},
-              onTap: (){},
-
-            ),
-            ListTile(
-              tileColor: Colors.amber,
-              leading: Icon(Icons.car_crash),
-              title: Text("Sales"),
-              subtitle: Text("Sales Of The Week"),
-              trailing: Icon(Icons.abc),
-              textColor: Colors.white,
-              iconColor: Colors.red,
-              hoverColor: Colors.purple,
-              selectedColor: Colors.red,
-              selectedTileColor: Colors.grey,
-              onLongPress: (){},
-              onTap: (){},
-
-            ),
-            ListTile(
-              leading: Icon(Icons.food_bank),
-              tileColor: Colors.deepPurpleAccent,
-              title: Text("Sales"),
-              subtitle: Text("Sales Of The Week"),
-              trailing: Icon(Icons.abc),
-              textColor: Colors.white,
-              iconColor: Colors.red,
-              hoverColor: Colors.purple,
-              selectedColor: Colors.red,
-              selectedTileColor: Colors.grey,
-              onLongPress: (){},
-              onTap: (){},
-
-            )
-          ],
-        ),
+        child: ListView.builder(
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text(products[index][0]),
+                ),
+                title: Text(products[index]),
+                subtitle: Text(productDetails[index]),
+                trailing: Text(price[index].toString()),
+                tileColor: Colors.grey.shade50,
+                splashColor: Colors.greenAccent,
+                //selectedTileColor: Colors.pinkAccent,
+                hoverColor: Colors.deepPurpleAccent,
+                onTap: (){},);
+            }),
       ),
     );
   }
