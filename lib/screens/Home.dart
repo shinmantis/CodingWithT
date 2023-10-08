@@ -14,227 +14,26 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // extendBodyBehindAppBar: true, //does what it says
-      appBar: AppBar(
-        //leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}), Could prevent the drawer widget below from opening
-        title: Text("Navigation Drawer"),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.wallet))
-        ],
-        elevation: 10,
-        titleSpacing: 20.0,
-        centerTitle: true,
-        backgroundColor: Colors.greenAccent,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
-        flexibleSpace: Image(
-          image: AssetImage(
-            "images/metroid.png",
-          ),
-          fit: BoxFit.scaleDown,
+        appBar: AppBar(
+          title: Text("Stack"),
+          centerTitle: true,
+          backgroundColor: Colors.black38,
         ),
-      ),
-      body: Container(
-        //color: Colors.amber,
-        child: ListView.builder(
-            itemCount: products.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Text(products[index][0]),
-                ),
-                title: Text(products[index]),
-                subtitle: Text(productDetails[index]),
-                trailing: Text(price[index].toString()),
-                tileColor: Colors.grey.shade50,
-                splashColor: Colors.greenAccent,
-                //selectedTileColor: Colors.pinkAccent,
-                hoverColor: Colors.deepPurpleAccent,
-                onTap: () {},
-              );
-            }),
-      ),
-      drawer: Drawer(
-        child: ListView(children: [
-          UserAccountsDrawerHeader(
-            accountEmail: Text("Foo@Fool.com"),
-            accountName: Text("Coding with Tea"),
-            currentAccountPicture: CircleAvatar(
-              foregroundImage: AssetImage("images/metroid.png"),
+        backgroundColor: Colors.grey.shade800,
+        body: Center(
+            child: Stack(
+          textDirection: TextDirection.rtl,
+          alignment: Alignment.center,
+          children: [
+            Container(width: 300, height: 200, color: Colors.green),
+            Positioned(
+              bottom: 0,
+              child: Container(width: 150, height: 100, color: Colors.red),
             ),
-            otherAccountsPictures: [
-              InkWell(
-                  onTap: () {},
-                  splashColor: Colors.deepPurple,
-                  hoverColor: Colors.orange,
-                  child: CircleAvatar(
-                    foregroundImage: AssetImage("images/metroid.png"),
-                  )),
-              InkWell(
-                  onTap: () {},
-                  splashColor: Colors.deepPurple,
-                  hoverColor: Colors.orange,
-                  child: CircleAvatar(
-                    foregroundImage: AssetImage("images/metroid.png"),
-                  )),
-              InkWell(
-                  onTap: () {},
-                  splashColor: Colors.deepPurple,
-                  hoverColor: Colors.orange,
-                  child: CircleAvatar(
-                    foregroundImage: AssetImage("images/metroid.png"),
-                  )),
-            ],
-          ),
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text("Home"),
-            onTap: () {},
-            tileColor: Colors.grey.shade50,
-            hoverColor: Colors.green,
-            splashColor: Colors.blueGrey,
-          ),
-          ListTile(
-            leading: Icon(Icons.shopping_cart),
-            title: Text("Shop"),
-            onTap: () {},
-            tileColor: Colors.grey.shade50,
-            hoverColor: Colors.green,
-            splashColor: Colors.blueGrey,
-          ),
-          ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text("Shop"),
-            onTap: () {},
-            tileColor: Colors.grey.shade50,
-            hoverColor: Colors.green,
-            splashColor: Colors.blueGrey,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Text("Lables"),
-          ),
-          ListTile(
-            leading: Icon(Icons.label),
-            title: Text("Red"),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.label),
-            title: Text("Green"),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.label),
-            title: Text("Blue"),
-            onTap: () {},
-          ),
-        ]),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-        backgroundColor: Colors.black45,
-        foregroundColor: Colors.pinkAccent,
-        elevation: 10.0,
-        // shape: BeveledRectangleBorder(
-        //  borderRadius: BorderRadius.circular(20.00),
-        //   side: BorderSide(
-        //     color: Colors.red,
-        //     width: 2,
-        //     style: BorderStyle.solid,
-        //   ),
-        // ),
-        mini: true,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-          notchMargin: 5.0 ,
-          shape: CircularNotchedRectangle(), //Will only notch the bottom of the appbar iff the button location above is center docked
-          color: Colors.black87,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: InkWell(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "home",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  onTap: () {},
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.shop,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "shop",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "fav",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.settings,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "setting",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )),
-    );
+            Positioned(
+                right: 40,
+                child: Container(width: 75, height: 50, color: Colors.blue)),
+          ],
+        )));
   }
 }
