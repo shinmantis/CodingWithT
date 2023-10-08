@@ -133,6 +133,108 @@ class Home extends StatelessWidget {
           ),
         ]),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.black45,
+        foregroundColor: Colors.pinkAccent,
+        elevation: 10.0,
+        // shape: BeveledRectangleBorder(
+        //  borderRadius: BorderRadius.circular(20.00),
+        //   side: BorderSide(
+        //     color: Colors.red,
+        //     width: 2,
+        //     style: BorderStyle.solid,
+        //   ),
+        // ),
+        mini: true,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+          notchMargin: 5.0 ,
+          shape: CircularNotchedRectangle(), //Will only notch the bottom of the appbar iff the button location above is center docked
+          color: Colors.black87,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: InkWell(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.home,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "home",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.shop,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "shop",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "fav",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "setting",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

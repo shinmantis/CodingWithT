@@ -23,6 +23,7 @@ void main() => runApp(const MyApp());
   //https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
   //https://www.reddit.com/r/FlutterDev/comments/10z6cka/flutter_3_book_recommendations/
   //https://pub.dev/packages/upgrader
+  //https://ux.stackexchange.com/questions/135433/app-navigation-bottom-navigation-bar-vs-bottom-app-bar
 
 
 
