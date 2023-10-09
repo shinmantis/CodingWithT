@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 
 class ListTileWidget extends StatelessWidget {
-  //arguments here!
+  //class variables
   String title, subTitle; //<---required (see below)
   IconData leadingIcon, trailingIcon; //<---optional
   Color? listTileColor, iconColor; //<---can be null
+
+
+  //Constructor
   ListTileWidget({
   required  this.title,
   required  this.subTitle,
