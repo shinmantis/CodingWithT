@@ -29,6 +29,9 @@ void main() => runApp(CTStatelessClass());
 //https://stackoverflow.com/questions/69698548/how-to-redraw-only-single-widget-in-flutter
 //https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments
 //https://blog.logrocket.com/understanding-flutter-navigation-routing/
+//https://docs.flutter.dev/cookbook/persistence/sqlite
+//https://blog.logrocket.com/choosing-right-database-flutter-application/
+//https://medium.com/dhiwise/how-to-choose-right-flutter-database-a1f35237a7f9
 
 class CTStatelessClass extends StatelessWidget {
   const CTStatelessClass({super.key});
