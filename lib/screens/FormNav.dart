@@ -4,11 +4,21 @@ import 'package:flutter/material.dart';
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
 
+
+
   @override
   State<MyForm> createState() => _MyFormState();
 }
 
 class _MyFormState extends State<MyForm> {
+  String _productName = "";
+
+  void _updateText(val){
+    setState(() {
+      _productName = val;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,19 +30,23 @@ class _MyFormState extends State<MyForm> {
         padding: EdgeInsets.all(20.00),
         child: ListView(
           children: [
-            TextField(
-                decoration: InputDecoration(
-                    hintText: "Some really cool hint",
-                    icon: Icon(Icons.verified_user_outlined),
-                    prefixIcon: Icon(Icons.fingerprint))),
-            Text(""),
             TextFormField(
+              //When the form field changes, that new value is passed to the
+              //onChanged event as val, val is then fed into the private method
+              //_updateText which takes the value inside val.  The private method
+              //then updates the private _productName value.  setState then
+              //rebuild the widget and the new value is displayed.
+              onChanged: (val){
+                _updateText(val);
+              },
               decoration: InputDecoration(
-                  labelText: "Some really cool label",
-                  icon: Icon(Icons.verified_user_outlined),
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.handshake)),
+                labelText: "Some really cool label",
+                icon: Icon(Icons.verified_user_outlined),
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.handshake),
+              ),
             ),
+            Text("Product Name is $_productName")
           ],
         ),
       ),
