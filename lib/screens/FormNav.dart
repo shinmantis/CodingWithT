@@ -12,12 +12,24 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   String _productName = "";
+  final _productController = TextEditingController();
 
-  void _updateText(val){
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _productController.addListener(_updateText);
+
+  }
+
+  void _updateText(){
     setState(() {
-      _productName = val;
+      _productName = _productController.text;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +43,7 @@ class _MyFormState extends State<MyForm> {
         child: ListView(
           children: [
             TextFormField(
+              /* Uncomment to use.  Useful but not recommended.  Use a controller
               //When the form field changes, that new value is passed to the
               //onChanged event as val, val is then fed into the private method
               //_updateText which takes the value inside val.  The private method
@@ -38,7 +51,9 @@ class _MyFormState extends State<MyForm> {
               //rebuild the widget and the new value is displayed.
               onChanged: (val){
                 _updateText(val);
-              },
+              }*/
+          controller: _productController
+          ,
               decoration: InputDecoration(
                 labelText: "Some really cool label",
                 icon: Icon(Icons.verified_user_outlined),
@@ -46,7 +61,7 @@ class _MyFormState extends State<MyForm> {
                 prefixIcon: Icon(Icons.handshake),
               ),
             ),
-            Text("Product Name is $_productName")
+            Text("Product Name is ${_productController.text}")
           ],
         ),
       ),
