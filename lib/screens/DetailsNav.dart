@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 //of the values in the page/widget, for now think of this as a static page of
 //information.
 class DetailsNav extends StatelessWidget {
-  const DetailsNav({super.key});
+  DetailsNav({Key? key, required this.productName}) : super(key:key);
+
+  String productName;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,17 @@ class DetailsNav extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back))
       ),
-        body: const Center(child: Text("Details Screen"))
+        body: Container(
+          padding: EdgeInsets.all(20.0),
+          child: ListView(
+            children: [
+              ListTile(
+                leading: Icon(Icons.account_balance_wallet_outlined),
+                title: Text(productName)
+              )
+            ],
+          )
+        )
     );
   }
 }

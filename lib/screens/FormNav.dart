@@ -15,19 +15,15 @@ class _MyFormState extends State<MyForm> {
   final _productController = TextEditingController();
 
 
-
+  //Clean up the controller so we don't end up with memory leaks
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _productController.addListener(_updateText);
-
+  void dispose() {
+    _productController.dispose();
+    super.dispose();
   }
 
   void _updateText(){
-    setState(() {
-      _productName = _productController.text;
-    });
+
   }
 
 
@@ -43,15 +39,6 @@ class _MyFormState extends State<MyForm> {
         child: ListView(
           children: [
             TextFormField(
-              /* Uncomment to use.  Useful but not recommended.  Use a controller
-              //When the form field changes, that new value is passed to the
-              //onChanged event as val, val is then fed into the private method
-              //_updateText which takes the value inside val.  The private method
-              //then updates the private _productName value.  setState then
-              //rebuild the widget and the new value is displayed.
-              onChanged: (val){
-                _updateText(val);
-              }*/
           controller: _productController
           ,
               decoration: InputDecoration(
@@ -61,7 +48,8 @@ class _MyFormState extends State<MyForm> {
                 prefixIcon: Icon(Icons.handshake),
               ),
             ),
-            Text("Product Name is ${_productController.text}")
+            SizedBox(height: 20.0),
+            myBtn(context),
           ],
         ),
       ),
@@ -82,7 +70,7 @@ class _MyFormState extends State<MyForm> {
           context, //Move from the context of the current class to the new class
           MaterialPageRoute(
             builder: (context) {
-              return DetailsNav();
+              return DetailsNav(productName: _productController.text);
             },
           ),
         );
