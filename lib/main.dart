@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/screens/FormNav.dart';
 import 'package:flutter/material.dart';
 import 'screens/Home.dart';
 import 'package:first_flutter_app/screens/Dashboard.dart';
@@ -26,6 +27,8 @@ void main() => runApp(CTStatelessClass());
 //https://ux.stackexchange.com/questions/135433/app-navigation-bottom-navigation-bar-vs-bottom-app-bar
 //https://medium.com/coding-with-flutter/flutter-state-management-setstate-bloc-valuenotifier-provider-2c11022d871b
 //https://stackoverflow.com/questions/69698548/how-to-redraw-only-single-widget-in-flutter
+//https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments
+//https://blog.logrocket.com/understanding-flutter-navigation-routing/
 
 class CTStatelessClass extends StatelessWidget {
   const CTStatelessClass({super.key});
@@ -33,44 +36,11 @@ class CTStatelessClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Stateful Widegts Flutter - 3.1"),
-            centerTitle: true,
-          ),
-          body: CTStatefulClass()),
+      title: "3.2 Flutter Push Pop",
+      theme: ThemeData.light(),
+      home: MyForm(),
     );
   }
 }
 
-//Stateful: Notice the @override doesn't override the build method like above
-//It overrides a createState which functions as a middleman to interacting with
-//build method
-class CTStatefulClass extends StatefulWidget {
-  const CTStatefulClass({super.key});
 
-  @override
-  State<CTStatefulClass> createState() => _CTStatefulClassState();
-}
-
-//Middleman, create design here
-class _CTStatefulClassState extends State<CTStatefulClass> {
-  bool liked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ListTile(
-          title: Text("Nike Shoes"),
-          trailing: IconButton(
-            icon: liked ? (Icon(Icons.star)) : (Icon(Icons.favorite)),
-            onPressed: () {
-              setState(() => liked = !liked); //Remember that the outcome of the negation is passed to set state as an argument to modify the UI
-            },
-          ),
-        ),
-      ],
-    );
-  }
-}
