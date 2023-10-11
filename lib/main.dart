@@ -32,6 +32,7 @@ void main() => runApp(CTStatelessClass());
 //https://docs.flutter.dev/cookbook/persistence/sqlite
 //https://blog.logrocket.com/choosing-right-database-flutter-application/
 //https://medium.com/dhiwise/how-to-choose-right-flutter-database-a1f35237a7f9
+//https://www.funwithflutter.dev/flutter-dart-when-to-use-var-final-const-static/#:~:text=Use%20final%20if%20you%20don,be%20immutable%2C%20should%20be%20final%20.
 
 class CTStatelessClass extends StatelessWidget {
   const CTStatelessClass({super.key});
@@ -39,7 +40,7 @@ class CTStatelessClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "3.2 Flutter Push Pop",
+      title: "3.4 Flutter Checkbox",
       theme: ThemeData.light(),
       home: MyForm(),
     );
