@@ -2,6 +2,8 @@ import 'package:first_flutter_app/screens/DetailsNav.dart';
 import 'package:first_flutter_app/widgets/mytextformfield.dart';
 import 'package:flutter/material.dart';
 
+
+
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
 
@@ -15,6 +17,7 @@ class _MyFormState extends State<MyForm> {
   final _productDesController = TextEditingController();
   bool? _checkBox = false;
   bool? _checkBoxList = false;
+  ProductTypeEnum? _productTypeEnum;
 
   //Clean up the controller so we don't end up with memory leaks
   @override
@@ -55,7 +58,7 @@ class _MyFormState extends State<MyForm> {
 
             SizedBox(height: 10.0),
 
-            //Two Types of Checkboxes
+            //Two Types of Checkboxes (3.4)
 
             //1.  CheckBox
             Checkbox(
@@ -73,14 +76,73 @@ class _MyFormState extends State<MyForm> {
             //2.  CheckBoxListTile
             CheckboxListTile(
               title: Text("Top Product"),
-                value: _checkBoxList,
+              value: _checkBoxList,
+              onChanged: (val) {
+                setState(() {
+                  _checkBoxList = val;
+                });
+              },
+              //changes the side the checkbox is on in the tile
+              controlAffinity: ListTileControlAffinity.leading,
+            ),
+
+            //Two Types of Radio Buttons (3.5)
+            //Value, the static value of the particular radio button
+            //Group Value, the currently selected value, when the value = groupValue
+            //That radio button will be displayed as selected
+
+            //1. RadioButton (Group)
+            //The Object Type isn't necessary AFAIK for this version of flutter
+
+            Radio<ProductTypeEnum>(
+                value: ProductTypeEnum.Deliverable,
+                groupValue: _productTypeEnum,
                 onChanged: (val) {
                   setState(() {
-                    _checkBoxList = val;
+                    _productTypeEnum = val;
                   });
-                },
-              //changes the side the checkbox is on in the tile
-            controlAffinity: ListTileControlAffinity.leading,),
+                }),
+
+            //2. Radio List Tile
+            Row(
+              children: [
+                Expanded(
+                    child: RadioListTile<ProductTypeEnum>(
+                        dense: true,
+                        //Shrinks the tile
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0)
+                        ),
+                        contentPadding: EdgeInsets.all(0.0),
+                        tileColor: Colors.purple.shade50,
+                        title: Text(ProductTypeEnum.Downloadable.name),
+                        value: ProductTypeEnum.Downloadable,
+                        groupValue: _productTypeEnum,
+                        onChanged: (val) {
+                          setState(() {
+                            _productTypeEnum = val;
+                          });
+                        })),
+                SizedBox(width: 5.0), //we need dense after adding this space
+                Expanded(
+                    child: RadioListTile<ProductTypeEnum>(
+                        dense: true,
+                        //Shrinks the tile
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)
+                        ),
+                        contentPadding: EdgeInsets.all(0.0),
+                        tileColor: Colors.purple.shade50,
+                        title: Text(ProductTypeEnum.Diagonal.name),
+                        value: ProductTypeEnum.Diagonal,
+                        groupValue: _productTypeEnum,
+                        onChanged: (val) {
+                          setState(() {
+                            _productTypeEnum = val;
+                          });
+                        }))
+              ],
+            ),
 
             myBtn(context),
           ],
