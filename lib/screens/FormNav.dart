@@ -18,6 +18,14 @@ class _MyFormState extends State<MyForm> {
   bool? _checkBoxList = false;
   ProductTypeEnum? _productTypeEnum;
 
+  final _productSizesList = ["Small", "Medium", "Large", "XLarge"];
+  String? _selectedVal = ""; //initial value in the list
+
+
+  _MyFormState(){
+    _selectedVal = _productSizesList[0]; //Sets the initial value of the list
+  }
+
   //Clean up the controller so we don't end up with memory leaks
   @override
   void dispose() {
@@ -109,26 +117,61 @@ class _MyFormState extends State<MyForm> {
                     title: ProductTypeEnum.Deliverable.name,
                     value: ProductTypeEnum.Deliverable,
                     productTypeEnum: _productTypeEnum,
-                    onChanged: (val){
-
+                    onChanged: (val) {
                       setState(() {
                         _productTypeEnum = val;
                       });
                     }),
-
                 MyRadioButton(
                     title: ProductTypeEnum.Downloadable.name,
                     value: ProductTypeEnum.Downloadable,
                     productTypeEnum: _productTypeEnum,
-                    onChanged: (val){
-
+                    onChanged: (val) {
                       setState(() {
                         _productTypeEnum = val;
                       });
                     })
               ],
-
             ),
+
+            //Dropdown Button (3.6)
+
+            //1. Regular Drop down
+            DropdownButton(
+              value: _selectedVal,
+              items: _productSizesList
+                  .map((eachItem) => DropdownMenuItem(
+                        child: Text(eachItem),
+                        value: eachItem,
+                      ))
+                  .toList(),
+              onChanged: (val) {
+                setState(() {
+                  _selectedVal = val as String; //or just val
+                });
+              },
+            ),
+
+            //2. Form Field Drop down
+            DropdownButtonFormField(
+              value: _selectedVal,
+              decoration: InputDecoration(
+                labelText: "Product Sizes",
+                prefixIcon: Icon(Icons.accessibility_new_rounded),
+                border: OutlineInputBorder(),
+              ),
+              items: _productSizesList
+                  .map((eachItem) => DropdownMenuItem(
+                child: Text(eachItem),
+                value: eachItem,
+              ))
+                  .toList(),
+              onChanged: (val) {
+                setState(() {
+                  _selectedVal = val as String; //or just val
+                });
+              },),
+
 
             myBtn(context),
           ],
