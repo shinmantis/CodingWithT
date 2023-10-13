@@ -33,7 +33,8 @@ void main() => runApp(CTStatelessClass());
 //https://blog.logrocket.com/choosing-right-database-flutter-application/
 //https://medium.com/dhiwise/how-to-choose-right-flutter-database-a1f35237a7f9
 //https://www.funwithflutter.dev/flutter-dart-when-to-use-var-final-const-static/#:~:text=Use%20final%20if%20you%20don,be%20immutable%2C%20should%20be%20final%20.
-
+//https://pub.dev/documentation/sodium_libs/latest/sodium_libs_sumo/Auth-class.html
+//Above sodium package requires SymLink support...?
 class CTStatelessClass extends StatelessWidget {
   const CTStatelessClass({super.key});
 
