@@ -17,6 +17,15 @@ class MyTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (valueEntered){
+        if (valueEntered == null || valueEntered.isEmpty)
+          {
+            return "please enter some text";
+          }
+
+        else null;
+      }
+      ,
       controller: myController,
       decoration: InputDecoration(
         labelText: fieldName,

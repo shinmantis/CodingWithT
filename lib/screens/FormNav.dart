@@ -1,7 +1,9 @@
 import 'package:first_flutter_app/screens/DetailsNav.dart';
 import 'package:first_flutter_app/screens/my_radio_button.dart';
 import 'package:first_flutter_app/widgets/mytextformfield.dart';
+import 'package:first_flutter_app/screens/MySubmitButton.dart';
 import 'package:flutter/material.dart';
+import 'package:sodium/sodium.dart';
 //import 'package:sodium/sodium.ffi.dart';
 //import 'package:sodium/sodium_sumo.dart';
 //import 'package:sodium_libs/sodium_libs.dart';
@@ -15,19 +17,35 @@ class MyForm extends StatefulWidget {
 }
 
 class _MyFormState extends State<MyForm> {
-  String _productName = "Add product details in the form below";
+
+  //Class Variables
   final _productController = TextEditingController();
   final _productDesController = TextEditingController();
+  final _productSizesList = ["Small", "Medium", "Large", "XLarge"];
+
+
+  //FormState is related to the internal form from flutter not with
+  //the classes that were created (like above)
+  final _formKey = GlobalKey<FormState>();
+
+
+
   bool? _checkBox = false;
   bool? _checkBoxList = false;
+  bool? _topProduct = false;
+  String _productName = "Add product details in the form below";
+
+
+
+
   ProductTypeEnum? _productTypeEnum;
 
-  final _productSizesList = ["Small", "Medium", "Large", "XLarge"];
-  String? _selectedVal = ""; //initial value in the list
 
+  String? _dropdownSelectedValue = ""; //initial value in the list
 
+  //Initializing Functions
   _MyFormState(){
-    _selectedVal = _productSizesList[0]; //Sets the initial value of the list
+    _dropdownSelectedValue = _productSizesList[0]; //Sets the initial value of the list
   }
 
   //Clean up the controller so we don't end up with memory leaks
@@ -51,8 +69,16 @@ class _MyFormState extends State<MyForm> {
         padding: EdgeInsets.all(20.00),
         child: ListView(
           children: [
+            const Image(image: AssetImage('images/moneybag.jpg'),height: 150,  alignment: Alignment(-1, 0)), //https://api.flutter.dev/flutter/widgets/Image/alignment.html
+            const Text("Select your items", style: TextStyle(fontWeight: FontWeight.bold),),
+            const SizedBox(height: 20.00,),
+
+            Form(
+                key:_formKey,
+                child: Column(
+              children: [
             MyTextFormField(
-              myController: _productController,
+            myController: _productController,
               fieldName: "Product Name",
               myPrefixIcon: Icons.propane_outlined,
               myPrefixIconColor: Colors.deepPurple.shade300,
@@ -69,22 +95,7 @@ class _MyFormState extends State<MyForm> {
 
             SizedBox(height: 10.0),
 
-            //Two Types of Checkboxes (3.4)
-
-            //1.  CheckBox
-            Checkbox(
-                tristate: true,
-                //True, False, Null
-                checkColor: Colors.green,
-                activeColor: Colors.white,
-                value: _checkBox,
-                onChanged: (val) {
-                  setState(() {
-                    _checkBox = val;
-                  });
-                }),
-
-            //2.  CheckBoxListTile
+            //1.  CheckBoxListTile
             CheckboxListTile(
               title: Text("Top Product"),
               value: _checkBoxList,
@@ -97,22 +108,6 @@ class _MyFormState extends State<MyForm> {
               controlAffinity: ListTileControlAffinity.leading,
             ),
 
-            //Two Types of Radio Buttons (3.5)
-            //Value, the static value of the particular radio button
-            //Group Value, the currently selected value, when the value = groupValue
-            //That radio button will be displayed as selected
-
-            //1. RadioButton (Group)
-            //The Object Type isn't necessary AFAIK for this version of flutter
-
-            Radio<ProductTypeEnum>(
-                value: ProductTypeEnum.Deliverable,
-                groupValue: _productTypeEnum,
-                onChanged: (val) {
-                  setState(() {
-                    _productTypeEnum = val;
-                  });
-                }),
 
             //2. Radio List Tile
             Row(
@@ -138,27 +133,9 @@ class _MyFormState extends State<MyForm> {
               ],
             ),
 
-            //Dropdown Button (3.6)
-
-            //1. Regular Drop down
-            DropdownButton(
-              value: _selectedVal,
-              items: _productSizesList
-                  .map((eachItem) => DropdownMenuItem(
-                        child: Text(eachItem),
-                        value: eachItem,
-                      ))
-                  .toList(),
-              onChanged: (val) {
-                setState(() {
-                  _selectedVal = val as String; //or just val
-                });
-              },
-            ),
-
-            //2. Form Field Drop down
+            //3 Dropdown Button
             DropdownButtonFormField(
-              value: _selectedVal,
+              value: _dropdownSelectedValue,
               decoration: InputDecoration(
                 labelText: "Product Sizes",
                 prefixIcon: Icon(Icons.accessibility_new_rounded),
@@ -172,12 +149,16 @@ class _MyFormState extends State<MyForm> {
                   .toList(),
               onChanged: (val) {
                 setState(() {
-                  _selectedVal = val as String; //or just val
+                  _dropdownSelectedValue = val as String; //or just val
                 });
               },),
 
+              ],
+            )),
+            
 
-            myBtn(context),
+            //myBtn(context), //<--Uses the local function
+            MySubmitButton(context: context, productController: _productController, productDesController: _productDesController)
           ],
         ),
       ),
