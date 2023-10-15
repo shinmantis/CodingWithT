@@ -29,7 +29,7 @@ class _MyFormState extends State<MyForm> {
   //FormState is related to the internal form from flutter not with
   //the classes that were created (like above)
   final _formKey = GlobalKey<FormState>();
-  ProductDetails productDetails = ProductDetails()
+  ProductDetails productDetails = ProductDetails();
 
 
 
@@ -166,11 +166,20 @@ class _MyFormState extends State<MyForm> {
               //Validate the form here (flutter decided to be different and use "!" for null checks as opposed to "?"
               if(_formKey.currentState!.validate())
                 {
-                  //Popup to show the user that something is happening
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Processing Data"))
-                  );
-                  
+
+                  productDetails.productName = _productController.text;
+                  productDetails.productDetails = _productDesController.text;
+                  productDetails.isTopProduct = _topProduct!; //! is check for null
+                  productDetails.productSize =_dropdownSelectedValue!; //! is check for null
+                  productDetails.productType = _productTypeEnum!;
+
+                  ////Pushes a new screen on top of the existing screen
+                  Navigator.push(
+                      context, //Move from the context of the current class to the new class
+                      MaterialPageRoute(
+                      builder: (context) {
+                    return DetailsNav.dataObject(productDetails: productDetails);
+                  }),);
                   
                 }
 
@@ -202,5 +211,11 @@ class _MyFormState extends State<MyForm> {
         );
       },
     );
+
+
+
+
+
+
   }
 }

@@ -41,6 +41,8 @@ void main() => runApp(CTStatelessClass());
 //https://stackoverflow.com/questions/75709685/flutter-create-object-data-class-dart
 //https://www.linkedin.com/pulse/freezed-powerful-way-generate-data-classes-flutter-ahmad-al-ghamdi
 //https://stackoverflow.com/questions/69312956/flutter-late-keyword-with-declaration
+//https://www.bezkoder.com/dart-flutter-constructors/
+//https://www.kindacode.com/article/using-chip-widget-in-flutter/
 
 
 

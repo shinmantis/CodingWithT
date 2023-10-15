@@ -15,7 +15,7 @@ class ProductDetails
   late String productName;
   late String productDetails;
   late bool isTopProduct;
-  late ProductDetails productType;
+  late ProductTypeEnum productType;
   late String productSize;
 }
 
