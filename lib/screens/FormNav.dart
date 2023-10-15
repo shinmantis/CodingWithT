@@ -1,4 +1,6 @@
+import 'package:first_flutter_app/Models/product_model.dart';
 import 'package:first_flutter_app/screens/DetailsNav.dart';
+import 'package:first_flutter_app/screens/MySubmitButtonFormVersion.dart';
 import 'package:first_flutter_app/screens/my_radio_button.dart';
 import 'package:first_flutter_app/widgets/mytextformfield.dart';
 import 'package:first_flutter_app/screens/MySubmitButton.dart';
@@ -27,6 +29,7 @@ class _MyFormState extends State<MyForm> {
   //FormState is related to the internal form from flutter not with
   //the classes that were created (like above)
   final _formKey = GlobalKey<FormState>();
+  ProductDetails productDetails = ProductDetails()
 
 
 
@@ -158,7 +161,21 @@ class _MyFormState extends State<MyForm> {
             
 
             //myBtn(context), //<--Uses the local function
-            MySubmitButton(context: context, productController: _productController, productDesController: _productDesController)
+            //MySubmitButton(context: context, productController: _productController, productDesController: _productDesController)
+            MySubmitButtonFormVersion(onPress: (){
+              //Validate the form here (flutter decided to be different and use "!" for null checks as opposed to "?"
+              if(_formKey.currentState!.validate())
+                {
+                  //Popup to show the user that something is happening
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Processing Data"))
+                  );
+                  
+                  
+                }
+
+            }
+            )
           ],
         ),
       ),

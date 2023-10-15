@@ -35,6 +35,15 @@ void main() => runApp(CTStatelessClass());
 //https://www.funwithflutter.dev/flutter-dart-when-to-use-var-final-const-static/#:~:text=Use%20final%20if%20you%20don,be%20immutable%2C%20should%20be%20final%20.
 //https://pub.dev/documentation/sodium_libs/latest/sodium_libs_sumo/Auth-class.html
 //Above sodium package requires SymLink support...?
+
+//https://stackoverflow.com/questions/69421872/named-parameters-cant-start-with-an-underscore-on-null-safe-flutter
+//https://stackoverflow.com/questions/73004239/flutter-dart-data-class
+//https://stackoverflow.com/questions/75709685/flutter-create-object-data-class-dart
+//https://www.linkedin.com/pulse/freezed-powerful-way-generate-data-classes-flutter-ahmad-al-ghamdi
+//https://stackoverflow.com/questions/69312956/flutter-late-keyword-with-declaration
+
+
+
 class CTStatelessClass extends StatelessWidget {
   const CTStatelessClass({super.key});
 
